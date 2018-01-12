@@ -2,12 +2,16 @@
 
 #If variable $ADVANCED_GIT_BRANCH, set branch to $ADVANCED_GIT_BRANCH, otherwise, default to master
 [ "$ADVANCED_GIT_BRANCH" ] && \
-	echo "Using this variable is unsupported., THERE IS NO PATH BACK TO MASTER GIT BRANCH OTHER THAN REMOVING EXISTING APPDATA FOLDER, WE MEAN IT WHEN WE SAY UNSUPPORTED" || \
+	echo "Using ADVANCED_GIT_BRANCH is unsupported., ONLY FOR DEVS" || \
 	ADVANCED_GIT_BRANCH="master"
+
+[ "$ADVANCED_GIT_REPO" ] && \
+	echo "Using ADVANCED_GIT_REPO is unsupported., ONLY FOR DEVS" || \
+	ADVANCED_GIT_REPO="https://github.com/JonnyWong16/plexpy.git"
 
 # install app 
 [[ ! -d "/opt/plexpy/.git" ]] && \
-	git clone --branch $ADVANCED_GIT_BRANCH https://github.com/JonnyWong16/plexpy.git /opt/plexpy
+	git clone --branch $ADVANCED_GIT_BRANCH $ADVANCED_GIT_REPO /opt/plexpy
 
 # permissions
 chown -R abc:abc \
