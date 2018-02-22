@@ -2,7 +2,7 @@
 [appurl]: https://github.com/tautulli/tautulli
 [hub]: https://hub.docker.com/r/tautulli/tautulli/
 
-![tautulli](img/logo-tautulli-docker.png)]
+![tautulli](https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-tautulli-docker.png)
 
 This docker is based on [LinuxServer.io][linuxserverurl] containers.
 
