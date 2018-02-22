@@ -7,7 +7,7 @@
 
 [ "$ADVANCED_GIT_REPO" ] && \
 	echo "Using ADVANCED_GIT_REPO is unsupported., ONLY FOR DEVS" || \
-	ADVANCED_GIT_REPO="https://github.com/JonnyWong16/plexpy.git"
+	ADVANCED_GIT_REPO="https://github.com/tautulli/tautulli.git"
 
 # install app 
 [[ ! -d "/opt/plexpy/.git" ]] && \

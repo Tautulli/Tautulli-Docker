@@ -15,15 +15,9 @@ RUN \
 	make \
 	python-dev && \
 
-# install pycryptodomex
+# install pycryptodomex Pillow Plexapi
  pip install --no-cache-dir -U \
-	pycryptodomex && \
-
-# install Pillow
- pip install Pillow && \
-
-# install Plexapi
- pip install plexapi && \
+	pycryptodomex Pillow plexapi && \
 
 # cleanup
  apk del --purge \
