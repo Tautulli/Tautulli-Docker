@@ -4,6 +4,10 @@
 
 ![tautulli](https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-tautulli-docker.png)
 
+![dockerhubpulls](https://img.shields.io/docker/pulls/tautulli/tautulli.svg)
+![dockerhubpulls](https://img.shields.io/docker/stars/tautulli/tautulli.svg)
+![dockerhubpulls](https://img.shields.io/docker/build/tautulli/tautulli.svg)
+
 This docker is based on [LinuxServer.io][linuxserverurl] containers.
 
 [Tautulli][appurl] integrates with Plex to provide you a feature-rich dashboard of statistics from user activity to a graphical history of streams, play count, along with configurable notifications, and more.
