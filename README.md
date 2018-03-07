@@ -37,14 +37,14 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 
 * `-p 8181` - Port for webui
-* `-v /config` Containes plexpy config and database
+* `-v /config` Containes Tautulli config and database
 * `-v /logs` Map this to the Plex Media Server log directory
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for setting timezone information, eg Europe/London
 * `-e ADVANCED_GIT_BRANCH` used to change the git branch used by the container
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it plexpy /bin/bash`.
+It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it tautulli /bin/bash`.
 
 ### User / Group Identifiers
 
