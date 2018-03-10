@@ -1,5 +1,5 @@
 FROM lsiobase/alpine.python:3.6
-MAINTAINER sparklyballs
+MAINTAINER williamcomartin
 # Forked from https://github.com/linuxserver/docker-plexpy
 
 # set version label
