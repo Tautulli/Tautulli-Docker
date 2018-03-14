@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
+<Container version="2">
   <Beta>False</Beta>
   <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
   <Date>2018-03-14</Date>
@@ -45,6 +45,7 @@
       <Mode>ro</Mode>
     </Volume>
   </Data>
+  <Config Name="Plex Logs" Target="/logs" Default="" Mode="ro" Description="Container Path: /logs" Type="Path" Display="always" Required="true" Mask="false"></Config>
 <WebUI>http://[IP]:[PORT:8181]/</WebUI>
 <Icon>https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-circle.png</Icon>
 <ExtraParams></ExtraParams>
