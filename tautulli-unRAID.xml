@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>False</Beta>
+  <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
+  <Date>2018-03-14</Date>
+  <Changes>
+[a href='https://github.com/Tautulli/Tautulli/blob/master/CHANGELOG.md' target='_blank']Latest Tautulli changes[/a]
+  </Changes>
+  <Name>Tautulli</Name>
+  <Support>http://tautulli.com/#support</Support>
+  <Description>
+    [b]Tautulli[/b][br][br]
+ 
+    Tautulli integrates with Plex to provide you a feature-rich dashboard of statistics from user activity to a graphical history of streams, play count, along with configurable notifications, and more.[br]
+    This docker integrates the plexapi python package for use with scripts. 
+  </Description>
+  <Project>http://tautulli.com/</Project>
+  <Registry>https://hub.docker.com/r/tautulli/tautulli/</Registry>
+  <Repository>Tautulli/Tautulli-Docker</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/logs</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+<WebUI>http://[IP]:[PORT:8181]/</WebUI>
+<Icon>https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-circle.png</Icon>
+<ExtraParams></ExtraParams>
+</Container>
