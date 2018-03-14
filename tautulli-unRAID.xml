@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2.0">
+  <Beta>False</Beta>
+  <Category>MediaServer:Other</Category>
+  <Date>2018-03-14</Date>
+  <Changes>
+[a href='https://github.com/Tautulli/Tautulli/blob/master/CHANGELOG.md' target='_blank']Latest Tautulli changes[/a]
+  </Changes>
+  <Name>Tautulli</Name>
+  <Support>http://tautulli.com/#support</Support>
+  <Overview>
+    [b]Tautulli[/b][br][br]
+ 
+    Tautulli integrates with Plex to provide you a feature-rich dashboard of statistics from user activity to a graphical history of streams, play count, along with configurable notifications, and more.[br]
+    This docker integrates the plexapi python package for use with scripts. 
+  </Overview>
+  <Project>http://tautulli.com/</Project>
+  <Registry>https://hub.docker.com/r/tautulli/tautulli/</Registry>
+  <Repository>tautulli/tautulli</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/logs</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Config Name="Plex Logs" Target="/logs" Default="/mnt/user/appdata/plex/Library/Application\ Support/Plex\ Media\ Server/Logs" Mode="ro" Description="Container Path: /logs" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="AppData Config Path" Target="/config" Default="/mnt/user/appdata/Tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false"></Config>
+<WebUI>http://[IP]:[PORT:8181]/</WebUI>
+<Icon>https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-circle.png</Icon>
+<Banner>https://raw.githubusercontent.com/Tautulli/Tautulli-Docker/master/img/logo-tautulli-docker.png</Banner>
+<ExtraParams></ExtraParams>
+</Container>
