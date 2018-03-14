@@ -16,7 +16,7 @@
   </Overview>
   <Project>http://tautulli.com/</Project>
   <Registry>https://hub.docker.com/r/tautulli/tautulli/</Registry>
-  <Repository>Tautulli/Tautulli-Docker</Repository>
+  <Repository>tautulli/tautulli</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Environment>
