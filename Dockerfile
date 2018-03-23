@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python:3.6
+FROM lsiobase/alpine.python:3.7
 MAINTAINER wcomartin
 # Forked from https://github.com/linuxserver/docker-plexpy
 
