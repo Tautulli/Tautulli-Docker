@@ -1,12 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 #If variable $ADVANCED_GIT_BRANCH, set branch to $ADVANCED_GIT_BRANCH, otherwise, default to master
-[ "$ADVANCED_GIT_BRANCH" ] && \
-	echo "Using ADVANCED_GIT_BRANCH is unsupported., ONLY FOR DEVS" || \
+[ "$ADVANCED_GIT_BRANCH" ] || \
 	ADVANCED_GIT_BRANCH="master"
 
-[ "$ADVANCED_GIT_REPO" ] && \
-	echo "Using ADVANCED_GIT_REPO is unsupported., ONLY FOR DEVS" || \
+[ "$ADVANCED_GIT_REPO" ] || \
 	ADVANCED_GIT_REPO="https://github.com/tautulli/tautulli.git"
 
 # install app 
