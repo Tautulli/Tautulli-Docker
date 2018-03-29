@@ -19,7 +19,7 @@ This is the official container supported by the Tautulli devs.</Overview>
   <Icon>https://raw.githubusercontent.com/Tautulli/docker-template/master/img/logo-circle.png</Icon>
   <ExtraParams/>
   <PostArgs/>
-  <DateInstalled>1522340896</DateInstalled>
+  <DateInstalled>1522344585</DateInstalled>
   <DonateText/>
   <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;amp;business=6XPPKTDSX9QFL&amp;amp;lc=US&amp;amp;item_name=PlexPy&amp;amp;currency_code=USD&amp;amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted</DonateLink>
   <DonateImg/>
@@ -72,6 +72,6 @@ This is the official container supported by the Tautulli devs.</Description>
   <Config Name="Plex Logs" Target="/plex_logs" Default="" Mode="ro" Description="Container Path: /plex_logs" Type="Path" Display="always" Required="false" Mask="false">path to plex logs</Config>
   <Config Name="Key 1" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="Key 2" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
-  <Config Name="GIT Branch" Target="ADVANCED_GIT_BRANCH" Default="master" Mode="" Description="Please use this field instead of the in app settings.&#13;&#10;&#13;&#10;Use Beta and Nightly at your own risk!" Type="Variable" Display="advanced-hide" Required="false" Mask="false">master</Config>
-  <Config Name="Config" Target="/config" Default="/mnt/cache/appdata/tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/cache/appdata/tautulli</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/cache/appdata/tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/cache/appdata/tautulli</Config>
+  <Config Name="GIT Branch" Target="ADVANCED_GIT_BRANCH" Default="master" Mode="" Description="Please use this field instead of the in app settings.&#13;&#10;&#13;&#10;Use Beta and Nightly at your own risk!" Type="Variable" Display="advanced-hide" Required="true" Mask="false">master</Config>
 </Container>
