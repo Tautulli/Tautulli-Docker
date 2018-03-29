@@ -10,7 +10,7 @@
   <Project>http://tautulli.com/</Project>
   <Overview>Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics.&#xD;
 &#xD;
-This container includes the plexapi python package for use with scripts.&#xD;
+This container supports the ability to use the Beta branch of Tautulli.&#xD;
 &#xD;
 This is the official container supported by the Tautulli devs.</Overview>
   <Category>Tools: MediaServer:Other</Category>
@@ -19,14 +19,14 @@ This is the official container supported by the Tautulli devs.</Overview>
   <Icon>https://raw.githubusercontent.com/Tautulli/docker-template/master/img/logo-circle.png</Icon>
   <ExtraParams/>
   <PostArgs/>
-  <DateInstalled>1520955225</DateInstalled>
+  <DateInstalled>1522340896</DateInstalled>
   <DonateText/>
   <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;amp;business=6XPPKTDSX9QFL&amp;amp;lc=US&amp;amp;item_name=PlexPy&amp;amp;currency_code=USD&amp;amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted</DonateLink>
   <DonateImg/>
   <MinVer>6.0</MinVer>
   <Description>Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics.&#xD;
 &#xD;
-This container includes the plexapi python package for use with scripts.&#xD;
+This container supports the ability to use the Beta branch of Tautulli.&#xD;
 &#xD;
 This is the official container supported by the Tautulli devs.</Description>
   <Networking>
@@ -41,13 +41,13 @@ This is the official container supported by the Tautulli devs.</Description>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/tautulli</HostDir>
-      <ContainerDir>/config</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
       <HostDir>path to plex logs</HostDir>
       <ContainerDir>/plex_logs</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/tautulli</HostDir>
+      <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -62,10 +62,16 @@ This is the official container supported by the Tautulli devs.</Description>
       <Name>PGID</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value>master</Value>
+      <Name>ADVANCED_GIT_BRANCH</Name>
+      <Mode/>
+    </Variable>
   </Environment>
-  <Config Name="Config" Target="/config" Default="/mnt/cache/appdata/tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/tautulli</Config>
   <Config Name="HTTP Port" Target="8181" Default="" Mode="tcp" Description="Container Port: 8181" Type="Port" Display="always" Required="false" Mask="false">8181</Config>
-  <Config Name="Plex Logs" Target="/plex_logs" Default="" Mode="rw" Description="Container Path: /plex_logs" Type="Path" Display="always" Required="false" Mask="false">path to plex logs</Config>
+  <Config Name="Plex Logs" Target="/plex_logs" Default="" Mode="ro" Description="Container Path: /plex_logs" Type="Path" Display="always" Required="false" Mask="false">path to plex logs</Config>
   <Config Name="Key 1" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="Key 2" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="GIT Branch" Target="ADVANCED_GIT_BRANCH" Default="master" Mode="" Description="Please use this field instead of the in app settings.&#13;&#10;&#13;&#10;Use Beta and Nightly at your own risk!" Type="Variable" Display="advanced-hide" Required="false" Mask="false">master</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/cache/appdata/tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/cache/appdata/tautulli</Config>
 </Container>
