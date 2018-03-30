@@ -42,7 +42,9 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for setting timezone information, eg Europe/London
-* `-e ADVANCED_GIT_BRANCH` used to change the git branch used by the container
+* `-e ADVANCED_GIT_BRANCH` used to change the git branch used by the container*
+
+**\* Note that stability on beta and nightly cannot be guaranteed**
 
 It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it tautulli /bin/bash`.
 
