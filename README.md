@@ -38,7 +38,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 * `-p 8181` - Port for webui
 * `-v /config` Containes Tautulli config and database
-* `-v /logs` Map this to the Plex Media Server log directory
+* `-v /plex_logs` Map this to the Plex Media Server log directory
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 * `-e TZ` for setting timezone information, eg Europe/London
