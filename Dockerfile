@@ -1,32 +1,75 @@
-FROM lsiobase/alpine.python:3.7
-# Forked from https://github.com/linuxserver/docker-plexpy
+FROM alpine:3.7
 
-# set version label
-ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="Tautulli version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+# set version for s6 overlay
+ARG OVERLAY_VERSION="v1.21.4.0"
+ARG OVERLAY_ARCH="amd64"
 
-# install packages
+# environment variables
+ENV PS1="$(whoami)@$(hostname):$(pwd)$ " \
+HOME="/root" \
+TERM="xterm"
+
 RUN \
- apk add --no-cache --virtual=build-dependencies \
+ echo "**** install build packages ****" && \
+  apk add --no-cache --virtual=build-dependencies \
+  autoconf \
+	automake \
+  curl \
 	g++ \
 	gcc \
+	linux-headers \
 	make \
-	python-dev && \
-
-# install pycryptodomex Plexapi
- pip install --no-cache-dir -U \
-	pycryptodomex plexapi && \
-
-# cleanup
+	python2-dev \
+  tar && \
+ echo "**** install runtime packages ****" && \
+ apk add --no-cache \
+	bash \
+	coreutils \
+  curl \
+	git \
+	py2-lxml \
+	py2-pip \
+	python2 \
+  shadow \
+	tar \
+  tzdata \
+	vnstat \
+	wget && \
+  echo "**** install pip packages ****" && \
+  pip install --no-cache-dir -U \
+ 	pip && \
+  pip install --no-cache-dir -U \
+  plexapi \
+ 	pycryptodomex && \
+ echo "**** add s6 overlay ****" && \
+ curl -o \
+ /tmp/s6-overlay.tar.gz -L \
+	"https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-${OVERLAY_ARCH}.tar.gz" && \
+ tar xfz \
+	/tmp/s6-overlay.tar.gz -C / && \
+ echo "**** create abc user and make folders ****" && \
+ groupmod -g 1000 users && \
+ useradd -u 911 -U -d /config -s /bin/false abc && \
+ usermod -G users abc && \
+ mkdir -p \
+	/app \
+	/config \
+	/defaults && \
+ echo "**** cleanup ****" && \
  apk del --purge \
-	build-dependencies && \
+ build-dependencies && \
  rm -rf \
-	/root/.cache
+ /root/.cache \
+ /tmp/*
 
-# add local files
+# add local files
 COPY root/ /
 
-# ports and volumes
+ENTRYPOINT ["/init"]
+
+# add local files
+COPY root/ /
+
+# ports and volumes
 VOLUME /config /logs
 EXPOSE 8181
