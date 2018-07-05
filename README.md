@@ -35,9 +35,9 @@ For shell access while the container is running run `docker exec -it tautulli ba
 
 Parameters are split into two halves separated by a colon. The left side represents the host and the right side the container.
 
-**Example**: -p external:internal - This shows the port mapping from internal to external of the container.
-So `-p 8181:8181` would expose port 8181 from inside the container to be accessible from the host's IP on port 8181.
-http://<host_ip>:8181 would show you what's running INSIDE the container on port 8181.
+**Example**: `-p external:internal` - This shows the port mapping from internal to external of the container.
+So `-p 8181:8181` would expose port `8181` from inside the container to be accessible from the host's IP on port `8181`.
+`http://<host_ip>:8181` would show you what's running INSIDE the container on port `8181`.
 
 | Parameter | Function |
 | :---: | --- |
