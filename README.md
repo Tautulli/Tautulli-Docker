@@ -8,11 +8,9 @@
 ![dockerhubpulls](https://img.shields.io/docker/stars/tautulli/tautulli.svg)
 ![dockerhubpulls](https://img.shields.io/docker/build/tautulli/tautulli.svg)
 
-This docker is based on [LinuxServer.io][linuxserverurl] containers.
-
 [Tautulli][appurl] integrates with Plex to provide you a feature-rich dashboard of statistics from user activity to a graphical history of streams, play count, along with configurable notifications, and more.
 
-This docker integrates the [plexapi](https://github.com/pkkid/python-plexapi) python package for use with scripts.
+This is the official Tautulli Docker container. Excess packages and dependencies have been removed to keep the size as small as possible.
 
 
 ## Usage
@@ -46,7 +44,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 
 **\* Note that stability on beta and nightly cannot be guaranteed**
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it tautulli /bin/bash`.
+This container uses the alpine linux base with s6 overlay. To get shell access while the container is running run `docker exec -it tautulli bash`.
 
 ### User / Group Identifiers
 
