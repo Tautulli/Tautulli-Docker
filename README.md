@@ -8,12 +8,14 @@
 ![dockerhubpulls](https://img.shields.io/docker/stars/tautulli/tautulli.svg)
 ![dockerhubpulls](https://img.shields.io/docker/build/tautulli/tautulli.svg)
 
-This docker is based on [LinuxServer.io][linuxserverurl] containers.
-
 [Tautulli][appurl] integrates with Plex to provide you a feature-rich dashboard of statistics from user activity to a graphical history of streams, play count, along with configurable notifications, and more.
 
-This docker integrates the [plexapi](https://github.com/pkkid/python-plexapi) python package for use with scripts.
+This is the official Tautulli Docker container. Excess packages, dependencies, and base images have been removed to keep the size as small as possible.
 
+This container uses the official [Alpine Linux image](https://hub.docker.com/_/alpine/) as a base image with [s6 overlay](https://github.com/just-containers/s6-overlay).
+
+## Support
+Support is available on [Discord](https://tautulli.com/discord), [Reddit](https://www.reddit.com/r/Tautulli), or the [Plex Forums](https://forums.plex.tv/discussion/307821/tautulli-monitor-your-plex-media-server).
 
 ## Usage
 
@@ -21,36 +23,39 @@ This docker integrates the [plexapi](https://github.com/pkkid/python-plexapi) py
 docker create \
   --name=tautulli \
   -v <path to data>:/config \
-  -v <path to plexlogs>:/logs:ro \
+  -v <path to plexlogs>:/plex_logs:ro \
   -e PGID=<gid> -e PUID=<uid>  \
   -e TZ=<timezone> \
   -p 8181:8181 \
   tautulli/tautulli
 ```
+For shell access while the container is running run `docker exec -it tautulli bash`.
 
 ## Parameters
 
-The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
-For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
-So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
-http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.
+Parameters are split into two halves separated by a colon. The left side represents the host and the right side the container.
 
+**Example**: `-p external:internal` - This shows the port mapping from internal to external of the container.
+So `-p 8181:8181` would expose port `8181` from inside the container to be accessible from the host's IP on port `8181`.
+`http://<host_ip>:8181` would show you what's running INSIDE the container on port `8181`.
 
-* `-p 8181` - Port for webui
-* `-v /config` Containes Tautulli config and database
-* `-v /plex_logs` Map this to the Plex Media Server log directory
-* `-e PGID` for GroupID - see below for explanation
-* `-e PUID` for UserID - see below for explanation
-* `-e TZ` for setting timezone information, eg Europe/London
-* `-e ADVANCED_GIT_BRANCH` used to change the git branch used by the container*
+| Parameter | Function |
+| :---: | --- |
+| `-p 8181` | Port for webui |
+| `-v /config` | Contains tautulli config and database |
+| `-v /plex_logs` | Map this to [Plex log directory](https://support.plex.tv/articles/200250417-plex-media-server-log-files/) |
+| `-e PGID` | GroupID (see below) |
+| `-e PUID` | UserID (see below) |
+| `-e TZ` | For setting timezone (ex. America/Toronto) |
+| `-e ADVANCED_GIT_BRANCH`* | Used to change the build (master/beta**/nightly**) |
 
-**\* Note that stability on beta and nightly cannot be guaranteed**
+\* If this environment variable is not set `master` will be used
 
-It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it tautulli /bin/bash`.
+**\*\* Note that stability on beta and nightly cannot be guaranteed**
 
 ### User / Group Identifiers
 
-Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. To avoid this issue you can specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify.
+When using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. To avoid this issue you can specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify.
 
 In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
 
