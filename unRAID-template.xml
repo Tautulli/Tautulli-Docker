@@ -12,7 +12,7 @@
 &#xD;
 This container supports the ability to use the Beta branch of Tautulli.&#xD;
 &#xD;
-This is the official container supported by the Tautulli devs.</Overview>
+This is the official container supported by the Tautulli devs. Excess packages, dependencies, and base images have been removed to keep the size as small as possible.</Overview>
   <Category>Tools: MediaServer:Other</Category>
   <WebUI>http://[IP]:[PORT:8181]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/Tautulli/docker-template/master/tautulli.xml</TemplateURL>
