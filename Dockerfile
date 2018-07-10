@@ -10,65 +10,62 @@ HOME="/root" \
 TERM="xterm"
 
 RUN \
- echo "**** install build packages ****" && \
+  echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
   autoconf \
-	automake \
+  automake \
   curl \
-	g++ \
-	gcc \
-	linux-headers \
-	make \
-	python2-dev \
+  g++ \
+  gcc \
+  linux-headers \
+  make \
+  python2-dev \
   tar && \
- echo "**** install runtime packages ****" && \
- apk add --no-cache \
-	bash \
-	coreutils \
+  echo "**** install runtime packages ****" && \
+  apk add --no-cache \
+  bash \
+  coreutils \
   curl \
-	git \
-	py2-lxml \
-	py2-pip \
-	python2 \
+  git \
+  py2-lxml \
+  py2-pip \
+  python2 \
   shadow \
-	tar \
+  tar \
   tzdata \
-	vnstat \
-	wget && \
+  vnstat \
+  wget && \
   echo "**** install pip packages ****" && \
   pip install --no-cache-dir -U \
- 	pip && \
+  pip && \
   pip install --no-cache-dir -U \
   plexapi \
- 	pycryptodomex && \
- echo "**** add s6 overlay ****" && \
- curl -o \
- /tmp/s6-overlay.tar.gz -L \
-	"https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-${OVERLAY_ARCH}.tar.gz" && \
- tar xfz \
-	/tmp/s6-overlay.tar.gz -C / && \
- echo "**** create abc user and make folders ****" && \
- groupmod -g 1000 users && \
- useradd -u 911 -U -d /config -s /bin/false abc && \
- usermod -G users abc && \
- mkdir -p \
-	/app \
-	/config \
-	/defaults && \
- echo "**** cleanup ****" && \
- apk del --purge \
- build-dependencies && \
- rm -rf \
- /root/.cache \
- /tmp/*
+  pycryptodomex && \
+  echo "**** add s6 overlay ****" && \
+  curl -o \
+  /tmp/s6-overlay.tar.gz -L \
+  "https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VERSION}/s6-overlay-${OVERLAY_ARCH}.tar.gz" && \
+  tar xfz \
+  /tmp/s6-overlay.tar.gz -C / && \
+  echo "**** create abc user and make folders ****" && \
+  groupmod -g 1000 users && \
+  useradd -u 911 -U -d /config -s /bin/false abc && \
+  usermod -G users abc && \
+  mkdir -p \
+  /app \
+  /config \
+  /defaults && \
+  echo "**** cleanup ****" && \
+  apk del --purge \
+  build-dependencies && \
+  rm -rf \
+  /root/.cache \
+  /tmp/*
 
 # add local files
 COPY root/ /
 
 ENTRYPOINT ["/init"]
-
-# add local files
-COPY root/ /
 
 # ports and volumes
 VOLUME /config /logs
