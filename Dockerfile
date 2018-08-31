@@ -19,6 +19,7 @@ RUN \
   gcc \
   linux-headers \
   make \
+  openssl-dev \
   python2-dev \
   tar && \
   echo "**** install runtime packages ****" && \
@@ -27,6 +28,7 @@ RUN \
   coreutils \
   curl \
   git \
+  openssl \
   py2-lxml \
   py2-pip \
   python2 \
@@ -40,7 +42,8 @@ RUN \
   pip && \
   pip install --no-cache-dir -U \
   plexapi \
-  pycryptodomex && \
+  pycryptodomex \
+  pyopenssl && \
   echo "**** add s6 overlay ****" && \
   curl -o \
   /tmp/s6-overlay.tar.gz -L \
