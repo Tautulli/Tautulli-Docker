@@ -40,7 +40,8 @@ RUN \
   pip && \
   pip install --no-cache-dir -U \
   plexapi \
-  pycryptodomex && \
+  pycryptodomex \
+  pyOpenSSL && \
   echo "**** add s6 overlay ****" && \
   curl -o \
   /tmp/s6-overlay.tar.gz -L \
