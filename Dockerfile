@@ -17,6 +17,7 @@ RUN \
   curl \
   g++ \
   gcc \
+  libffi-dev \
   linux-headers \
   make \
   openssl-dev \
@@ -28,6 +29,7 @@ RUN \
   coreutils \
   curl \
   git \
+  libffi \
   openssl \
   py2-lxml \
   py2-pip \
