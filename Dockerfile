@@ -73,5 +73,5 @@ COPY root/ /
 ENTRYPOINT ["/init"]
 
 # ports and volumes
-VOLUME /config /logs
+VOLUME /config /plex_logs
 EXPOSE 8181
