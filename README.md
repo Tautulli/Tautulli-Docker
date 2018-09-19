@@ -23,7 +23,7 @@ Support is available on [Discord](https://tautulli.com/discord), [Reddit](https:
 docker create \
   --name=tautulli \
   -v <path to data>:/config \
-  -v <path to plexlogs>:/plex_logs:ro \
+  -v <path to plexlogs>:/logs:ro \
   -e PGID=<gid> -e PUID=<uid>  \
   -e TZ=<timezone> \
   -p 8181:8181 \
@@ -43,7 +43,7 @@ So `-p 8181:8181` would expose port `8181` from inside the container to be acces
 | :---: | --- |
 | `-p 8181` | Port for webui |
 | `-v /config` | Contains tautulli config and database |
-| `-v /plex_logs` | Map this to [Plex log directory](https://support.plex.tv/articles/200250417-plex-media-server-log-files/) |
+| `-v /logs` | Map this to [Plex log directory](https://support.plex.tv/articles/200250417-plex-media-server-log-files/) |
 | `-e PGID` | GroupID (see below) |
 | `-e PUID` | UserID (see below) |
 | `-e TZ` | For setting timezone (ex. America/Toronto) |
