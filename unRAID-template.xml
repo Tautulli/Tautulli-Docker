@@ -6,7 +6,7 @@
   <Network>bridge</Network>
   <MyIP/>
   <Privileged>false</Privileged>
-  <Support>https://discord.gg/tQcWEUp</Support>
+  <Support>https://tautulli.com/#support</Support>
   <Project>http://tautulli.com/</Project>
   <Overview>Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics.&#xD;
 &#xD;
@@ -21,7 +21,7 @@ This is the official container supported by the Tautulli devs. Excess packages, 
   <PostArgs/>
   <DateInstalled>1522344585</DateInstalled>
   <DonateText/>
-  <DonateLink>https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;amp;business=6XPPKTDSX9QFL&amp;amp;lc=US&amp;amp;item_name=PlexPy&amp;amp;currency_code=USD&amp;amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted</DonateLink>
+  <DonateLink>https://tautulli.com/#donate</DonateLink>
   <DonateImg/>
   <MinVer>6.0</MinVer>
   <Description>Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics.&#xD;
