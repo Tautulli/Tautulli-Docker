@@ -6,7 +6,7 @@ ARG OVERLAY_ARCH="amd64"
 
 # environment variables
 ENV PS1="$(whoami)@$(hostname):$(pwd)$ " \
-ENV TAUTULLI_DOCKER=True \
+ENV TAUTULLI_DOCKER="True" \
 HOME="/root" \
 TERM="xterm"
 
