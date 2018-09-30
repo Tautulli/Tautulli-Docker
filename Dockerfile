@@ -5,10 +5,10 @@ ARG OVERLAY_VERSION="v1.21.4.0"
 ARG OVERLAY_ARCH="amd64"
 
 # environment variables
-ENV PS1="$(whoami)@$(hostname):$(pwd)$ " \
-ENV TAUTULLI_DOCKER="True" \
-HOME="/root" \
-TERM="xterm"
+ENV PS1="$(whoami)@$(hostname):$(pwd)$ "
+ENV TAUTULLI_DOCKER=True
+ENV HOME="/root"
+ENV TERM="xterm"
 
 RUN \
   echo "**** install build packages ****" && \
