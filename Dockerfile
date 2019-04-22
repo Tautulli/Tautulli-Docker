@@ -76,3 +76,4 @@ ENTRYPOINT ["/init"]
 # ports and volumes
 VOLUME /config /plex_logs
 EXPOSE 8181
+HEALTHCHECK  --timeout=3s CMD curl -ILf http://localhost:8181 || curl -ILfk https://localhost:8181 || exit 1
