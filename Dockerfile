@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10
 
 # set version for s6 overlay
 ARG OVERLAY_VERSION="v1.22.1.0"
