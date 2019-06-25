@@ -9,6 +9,7 @@ ENV PS1="$(whoami)@$(hostname):$(pwd)$ "
 ENV TAUTULLI_DOCKER=True
 ENV HOME="/root"
 ENV TERM="xterm"
+ENV TZ=UTC
 
 RUN \
   echo "**** install build packages ****" && \
