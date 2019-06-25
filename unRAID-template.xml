@@ -5,6 +5,7 @@
   <Registry>https://registry.hub.docker.com/u/tautulli/tautulli/</Registry>
   <Network>bridge</Network>
   <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://tautulli.com/#support</Support>
   <Project>http://tautulli.com/</Project>
@@ -19,16 +20,14 @@ This is the official container supported by the Tautulli devs. Excess packages, 
   <Icon>https://raw.githubusercontent.com/Tautulli/docker-template/master/img/logo-circle.png</Icon>
   <ExtraParams/>
   <PostArgs/>
-  <DateInstalled>1522344585</DateInstalled>
+  <CPUset/>
   <DonateText/>
   <DonateLink>https://tautulli.com/#donate</DonateLink>
-  <DonateImg/>
-  <MinVer>6.0</MinVer>
   <Description>Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics.&#xD;
 &#xD;
 This container supports the ability to use the Beta branch of Tautulli.&#xD;
 &#xD;
-This is the official container supported by the Tautulli devs.</Description>
+This is the official container supported by the Tautulli devs. Excess packages, dependencies, and base images have been removed to keep the size as small as possible.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -63,12 +62,19 @@ This is the official container supported by the Tautulli devs.</Description>
       <Mode/>
     </Variable>
     <Variable>
+      <Value>UTC</Value>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
       <Value>master</Value>
       <Name>ADVANCED_GIT_BRANCH</Name>
       <Mode/>
     </Variable>
   </Environment>
+  <Labels/>
   <Config Name="HTTP Port" Target="8181" Default="" Mode="tcp" Description="Container Port: 8181" Type="Port" Display="always" Required="false" Mask="false">8181</Config>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false">UTC</Config>
   <Config Name="Plex Logs" Target="/plex_logs" Default="" Mode="ro" Description="Container Path: /plex_logs" Type="Path" Display="always" Required="false" Mask="false">path to plex logs</Config>
   <Config Name="Key 1" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="Key 2" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
